@@ -1,0 +1,28 @@
+
+apply plugin: Plugins.javaLibrary
+apply plugin: Plugins.kotlin
+apply plugin: Plugins.kotlinKapt
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
+}
+
+dependencies {
+
+    api "javax.inject:javax.inject:$javax_inject"
+    api "com.google.code.gson:gson:$google_gson"
+    implementation("androidx.paging:paging-common:$android_paging_runtime")
+
+//========================================================================================
+
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$jetbrains_kotlinx_coroutines"
+
+//========================================================================================
+
+    implementation "com.squareup.okhttp3:okhttp:$squareup_okhttp3"
+
+//========================================================================================
+
+    testImplementation "junit:junit:$junitVersion"
+}

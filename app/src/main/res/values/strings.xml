@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">ApiCorporalabs</string>
+    <string name="action_settings">Settings</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">News Fragment</string>
+    <string name="second_fragment_label">Detail Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello News fragment</string>
+    <string name="hello_second_fragment">Hello Detail fragment. Arg: %1$s</string>
+
+    <string name="results_could_not_be_loaded">Results could not be loaded</string>
+    <string name="retry">Retry</string>
+    <string name="search">Search</string>
+
+    <!-- Image -->
+    <string name="img_cover_content_desc">Image cover</string>
+</resources>

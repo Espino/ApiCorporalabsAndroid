@@ -1,0 +1,136 @@
+apply plugin: Plugins.androidApplication
+apply plugin: Plugins.kotlinAndroid
+apply plugin: Plugins.kotlinParcelize
+apply plugin: Plugins.kotlinKapt
+apply plugin: Plugins.daggerHilt
+apply plugin: Plugins.navigationSafeArgsKotlin
+
+android {
+    compileSdkVersion(AppConfig.compileSdkVersion)
+    buildToolsVersion(AppConfig.buildToolsVersion)
+    defaultConfig {
+//        applicationId 'com.phonedeveloper.apimarvel'
+        applicationId (AppConfig.applicationId)
+        minSdkVersion(AppConfig.minSdkVersion)
+        targetSdkVersion(AppConfig.targetSdkVersion)
+        versionCode = AppConfig.versionCode
+        versionName = AppConfig.versionName
+        testInstrumentationRunner = AppConfig.testInstrumentationRunner
+
+        buildConfigField("String", "API_KEY", MY_KEY)
+        buildConfigField("String", "BASE_URL", MY_URL)
+        vectorDrawables.useSupportLibrary = true
+    }
+
+    buildTypes {
+        debug {
+            buildConfigField("String", "APIKEY", "\"5eYoQJqjIS5QtvuWyuVkqRYLPP8plvik\"")
+            buildConfigField("String", "URL", "\"https://api.nytimes.com/\"")
+            applicationIdSuffix ".debug"
+            debuggable true
+        }
+
+        release {
+            buildConfigField("String", "APIKEY", "\"q5eYoQJqjIS5QtvuWyuVkqRYLPP8plvik\"")
+            buildConfigField("String", "URL", "\"https://api.nytimes.com/\"")
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+
+    }
+
+    flavorDimensions 'app' , 'environment'
+
+    productFlavors {
+        nytimes {
+            dimension 'app'
+        }
+
+        dev {
+            dimension 'environment'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility(JavaVersion.VERSION_11)
+        targetCompatibility(JavaVersion.VERSION_11)
+    }
+
+    kotlinOptions {
+        jvmTarget = "$jvmTarget11"
+    }
+
+    buildFeatures {
+        viewBinding true
+    }
+}
+
+dependencies {
+
+    implementation project(":domain")
+    implementation project(":data")
+
+    //ANDROID
+    implementation "androidx.core:core-ktx:$android_core_ktx"
+    implementation "androidx.appcompat:appcompat:$android_appcompat"
+    implementation "com.google.android.material:material:$android_material"
+
+    implementation "androidx.swiperefreshlayout:swiperefreshlayout:$android_swiperefreshlayout"
+
+    // Material Design Library
+    implementation "androidx.constraintlayout:constraintlayout:$android_constraintlayout"
+
+    //To add viewModel at Activity and Fragment easy
+    implementation "androidx.fragment:fragment-ktx:$android_fragment_ktx"
+    implementation "androidx.activity:activity-ktx:$android_activity_ktx"
+    implementation "androidx.navigation:navigation-dynamic-features-fragment:$nav_version"
+
+    implementation 'androidx.navigation:navigation-fragment-ktx:2.3.5'
+    implementation 'androidx.navigation:navigation-ui-ktx:2.3.5'
+
+    // Paging 3
+    implementation "androidx.paging:paging-runtime-ktx:$android_paging_runtime"
+
+    //========================================================================================
+    //LifeCycle
+    implementation "androidx.lifecycle:lifecycle-runtime:$android_lifecycle_ktx"
+//    implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.4.0-rc01"
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:$android_lifecycle_ktx"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-savedstate:$android_lifecycle_ktx"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$android_lifecycle_ktx"
+
+    implementation "androidx.hilt:hilt-lifecycle-viewmodel:$android_hilt_lifecycle_viewmodel"
+
+    kapt "androidx.hilt:hilt-compiler:$android_hilt_lifecycle_viewmodel"
+
+    //DAGGER
+    //Hilt included at data and presentation layer
+
+    implementation "com.google.dagger:hilt-android:$dagger_hilt"
+    kapt "com.google.dagger:hilt-compiler:$dagger_hilt"
+
+    //========================================================================================
+    // Glide
+    implementation "com.github.bumptech.glide:glide:$github_bumptech_glide"
+    kapt "com.github.bumptech.glide:compiler:$github_bumptech_glide"
+
+//========================================================================================
+//LOGS
+    // Timber
+    implementation "com.jakewharton.timber:timber:$jakewharton_timber"
+
+//========================================================================================
+//    Libraries
+    implementation "de.hdodenhof:circleimageview:$hdodenhof_circleimageview"
+    implementation "com.airbnb.android:lottie:$airbnb_android_lottie"
+    // Material Dialog Library
+    implementation "dev.shreyaspatil.MaterialDialog:MaterialDialog:$shreyaspatil_materialDialog_materialDialog"
+
+    //========================================================================================
+
+    // testing
+
+    testImplementation 'junit:junit:4.+'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+}

@@ -1,0 +1,94 @@
+ext {
+
+    //========================================================================================
+    //JAVA
+    javax = [ // Groovy map literal
+              javax_inject = "1",
+              jvmTarget = "1.8",
+              jvmTarget11 = "11"
+    ]
+
+    //========================================================================================
+    //ANDROID
+    android = [ // Groovy map literal
+                android_core_ktx = "1.6.0",
+                android_appcompat = "1.3.1",
+                android_material = "1.4.0",
+                android_paging_runtime = "3.0.1",
+                android_preference_ktx = "1.1.1",
+                android_datastore_preferences = "1.0.0-alpha04",
+                android_lifecycle_ktx = "2.3.1",
+                android_work_runtime_ktx = "2.4.0",
+                android_room_ktx = "2.3.0",
+                android_room_runtime_compile = "2.2.6",
+                android_constraintlayout = "2.1.1" ,
+                android_activity_ktx = "1.4.0" ,
+                android_fragment_ktx = "1.3.6" ,
+                android_swiperefreshlayout = "1.1.0",
+                android_hilt_lifecycle_viewmodel = "1.0.0-alpha02"
+
+    ]
+
+//========================================================================================
+    //GOOGLE
+    google = [ // Groovy map literal
+                 google_gson = "2.8.7"
+    ]
+
+    //========================================================================================
+    //GLIDE
+    github = [ // Groovy map literal
+               github_bumptech_glide = "4.12.0"
+    ]
+
+    //========================================================================================
+    //DAGGER
+    dagger = [ // Groovy map literal
+               dagger_hilt = "2.39.1"
+    ]
+
+    //========================================================================================
+    //RETROFIT -
+    squareup = [ // Groovy map literal
+                 squareup_retrofit2 = "2.9.0",
+                 squareup_okhttp3 = "4.9.0",
+                 squareup_picasso = "2.8",
+    ]
+
+
+    //========================================================================================
+    //Kotlin -
+    jetbrains = [ // Groovy map literal
+                 jetbrains_kotlinx_coroutines = "1.5.0",
+                 jetbrains_kotlinx_play_services = "1.1.1"
+    ]
+
+    //========================================================================================
+
+    libraries = [ // Groovy map literal
+                  jakewharton_timber = "4.7.1",
+                  hdodenhof_circleimageview = "3.1.0",
+                  airbnb_android_lottie ="3.7.0",
+                  shreyaspatil_materialDialog_materialDialog = "2.2.2"
+
+    ]
+//========================================================================================
+
+    //TEST -
+    test = [ // Groovy map literal
+             junitVersion = "4.12",
+             androidx_test_ext_junit ="1.1.3",
+             androidx_test_espresso_core ="3.4.0",
+             androidx_arch_core_core_testing = "2.1.0",
+             junitVersion = "4.12",
+             mockito = "2.22.0",
+             mockk = "1.9.3",
+             testRunnerVersion = "1.1.1",
+             testRulesVersion = "1.1.1",
+             jetbrains_kotlinx_coroutines_test = "1.5.2",
+             jetbrains_kotlinx_coroutines_test = "3.1.1"
+    ]
+
+//========================================================================================
+
+   }
